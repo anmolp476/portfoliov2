@@ -43,8 +43,10 @@ const experiences: Experience[] = [
 export default function ExperienceTimeline() {
   return (
     <section className="my-24">
-      <h2 className="text-3xl font-semibold mb-10">Experience</h2>
-      <div className="relative border-l border-muted-light dark:border-muted-dark ml-4">
+      <h2 className="text-3xl font-semibold mb-10 text-gray-900 dark:text-gray-100">
+        Experience
+      </h2>
+      <div className="relative border-l-2 border-gray-300 dark:border-gray-700 ml-4">
         {experiences.map((exp, idx) => (
           <motion.div
             key={idx}
@@ -52,14 +54,19 @@ export default function ExperienceTimeline() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.2 }}
-            className="mb-10 pl-6 relative"
+            className="mb-10 pl-8 relative"
           >
-            <span className="absolute -left-4 top-0 w-3 h-3 rounded-full bg-accent-light dark:bg-accent-dark"></span>
-            <h3 className="text-xl font-semibold">{exp.role}</h3>
-            <p className="text-sm text-muted-light dark:text-muted-dark">
+            {/* Timeline dot */}
+            <span className="absolute -left-5 top-1 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 shadow-lg"></span>
+
+            {/* Experience content */}
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+              {exp.role}
+            </h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {exp.duration}
             </p>
-            <ul className="mt-2 list-disc list-inside text-sm text-muted-light dark:text-muted-dark">
+            <ul className="mt-2 list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
               {exp.details.map((detail, i) => (
                 <li key={i}>{detail}</li>
               ))}
